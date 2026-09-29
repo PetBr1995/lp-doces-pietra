@@ -54,9 +54,13 @@ function Silhouette() {
   );
 }
 
-export default function Logo({ className }: { className?: string }) {
+export default function Logo({ className, decorative }: { className?: string; decorative?: boolean }) {
   return (
-    <svg viewBox="0 -12 600 334" className={className} role="img" aria-label="Doces Pietra">
+    <svg
+      viewBox="0 -12 600 334"
+      className={className}
+      {...(decorative ? { "aria-hidden": true } : { role: "img", "aria-label": "Doces Pietra" })}
+    >
       <defs>
         <linearGradient id="logo-text" x1="40" y1="0" x2="540" y2="0" gradientUnits="userSpaceOnUse">
           <stop offset="0" stopColor="#d3141d" />
