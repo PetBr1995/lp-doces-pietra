@@ -7,9 +7,8 @@ export default function Home() {
   return (
     <main className="relative min-h-screen overflow-hidden">
       <JsonLd />
-      <Hero>
-        <Header />
-      </Hero>
+      <Header />
+      <Hero />
       <Favorites />
     </main>
   );

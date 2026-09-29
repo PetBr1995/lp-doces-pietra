@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Hero({ children }: { children?: React.ReactNode }) {
+export default function Hero() {
   return (
     <section className="scallop-bottom relative isolate z-10 flex min-h-screen flex-col overflow-hidden bg-candy-purple">
       {/* Fundo: gradientes radiais + vinheta */}
@@ -26,9 +26,7 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
       <div aria-hidden className="absolute right-[10%] top-[45%] -z-10 h-52 w-52 animate-float will-change-transform rounded-full bg-violet-500/20 blur-3xl [animation-delay:-4s]" />
 
 
-      {children}
-
-      <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center px-6 pb-32 pt-10 text-center">
+      <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center px-6 pb-32 pt-32 text-center">
         <span className="animate-reveal [animation-delay:100ms] inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1.5 text-xs font-medium text-white/90 ring-1 ring-white/15 backdrop-blur">
           <span className="h-1.5 w-1.5 rounded-full bg-candy-yellow" />
           Escolha seu doce favorito
