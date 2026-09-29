@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-fredoka);
+  --color-candy-pink: #e0457b;
+  --color-candy-yellow: #ffc83d;
+  --color-candy-purple: #2a0b3d;
+
+  /* toda classe `transition*` do Tailwind passa a usar essa duração e curva */
+  --default-transition-duration: 450ms;
+  --default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-page-in: page-in 700ms var(--ease-smooth) both;
+  --animate-reveal: reveal 900ms var(--ease-smooth) both;
+  --animate-float: float 8s ease-in-out infinite;
+}
+
+@keyframes page-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(24px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: blur(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.7; }
+  50% { transform: translate3d(0, -24px, 0) scale(1.1); opacity: 1; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #1e0630;
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
