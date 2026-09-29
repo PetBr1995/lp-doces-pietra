@@ -36,6 +36,30 @@ html {
   scroll-behavior: smooth;
 }
 
+/* cursores personalizados: casquinha (seta) e mãozinha rosa (clicáveis) */
+html {
+  cursor: url("/cursors/cone.svg") 2 2, auto;
+}
+
+/* tudo que é clicável mostra a mãozinha */
+a[href],
+button:not(:disabled),
+[role="button"],
+label:has(input),
+select,
+summary,
+input[type="checkbox"],
+input[type="radio"],
+input[type="submit"],
+input[type="button"] {
+  cursor: url("/cursors/hand.svg") 12 2, pointer;
+}
+
+input[type="search"],
+input[type="text"] {
+  cursor: text;
+}
+
 body {
   background: #1e0630;
   color: #fff;

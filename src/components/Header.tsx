@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Logo from "@/components/Logo";
 
 const leftLinks = [
   { label: "Início", href: "#", active: true },
@@ -38,23 +39,10 @@ function NavLink({
   );
 }
 
-const logoColors = ["#ff4d6d", "#ffc83d", "#4dd4ff", "#7cff6b", "#ff8a3d", "#c86bff"];
-
-function Logo() {
-  const word = (text: string, offset: number) =>
-    text.split("").map((ch, i) => (
-      <span key={i} style={{ color: logoColors[(i + offset) % logoColors.length] }}>
-        {ch}
-      </span>
-    ));
-
+function Brand() {
   return (
-    <Link
-      href="/"
-      className="flex flex-col items-center font-display font-bold leading-[0.85] tracking-tight [paint-order:stroke] [-webkit-text-stroke:5px_#3b0d57] drop-shadow-[0_3px_0_#14031f]"
-    >
-      <span className="-rotate-6 text-2xl">{word("Doces", 0)}</span>
-      <span className="rotate-3 text-3xl">{word("Pietra", 2)}</span>
+    <Link href="/" aria-label="Doces Pietra - início" className="shrink-0 transition-transform hover:scale-105 hover:-rotate-2">
+      <Logo className="w-24 drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)] sm:w-28" />
     </Link>
   );
 }
@@ -82,7 +70,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <Logo />
+        <Brand />
 
         <div className="hidden flex-1 items-center justify-end gap-8 lg:flex">
           {rightLinks.map((l) => (
