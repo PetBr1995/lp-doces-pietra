@@ -37,6 +37,22 @@ html {
   scroll-behavior: smooth;
 }
 
+/* borda inferior em "ondinhas" (arcos rasos), recortando o próprio fundo da seção */
+.scallop-bottom {
+  --w: 44px; /* largura de cada ondinha */
+  --h: calc(var(--w) * 10 / 56); /* profundidade do recorte */
+  -webkit-mask:
+    linear-gradient(#000 0 0) top / 100% calc(100% - var(--h) + 1px) no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 10' preserveAspectRatio='none'%3E%3Cpath d='M0 0 A44.2 44.2 0 0 0 56 0 Z'/%3E%3C/svg%3E") bottom / var(--w) var(--h) repeat-x;
+  mask:
+    linear-gradient(#000 0 0) top / 100% calc(100% - var(--h) + 1px) no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 10' preserveAspectRatio='none'%3E%3Cpath d='M0 0 A44.2 44.2 0 0 0 56 0 Z'/%3E%3C/svg%3E") bottom / var(--w) var(--h) repeat-x;
+}
+
+@media (min-width: 768px) {
+  .scallop-bottom { --w: 72px; }
+}
+
 /* cursores personalizados: casquinha (seta) e mãozinha rosa (clicáveis) */
 html {
   cursor: url("/cursors/cone.svg") 2 2, auto;
